@@ -4,4 +4,5 @@ android:
     - tools
     - build-tools-25.0.0
     - android-21
-install: true
+    - extra-android-support
+    - extra-android-m2repository
