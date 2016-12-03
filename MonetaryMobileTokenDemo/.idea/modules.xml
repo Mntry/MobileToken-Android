@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/MobileToken/MobileToken.iml" filepath="$PROJECT_DIR$/MobileToken/MobileToken.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MobileToken-Android.iml" filepath="$PROJECT_DIR$/MobileToken-Android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MobileTokenDemo/MobileTokenDemo.iml" filepath="$PROJECT_DIR$/MobileTokenDemo/MobileTokenDemo.iml" />
+    </modules>
+  </component>
+</project>
