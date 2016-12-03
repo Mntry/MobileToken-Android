@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MobileTokenDemo.iml" filepath="$PROJECT_DIR$/MobileTokenDemo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/MonetaryMobileToken/MonetaryMobileToken.iml" filepath="$PROJECT_DIR$/MonetaryMobileToken/MonetaryMobileToken.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MonetaryMobileTokenDemo.iml" filepath="$PROJECT_DIR$/MonetaryMobileTokenDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getTokenPressed(View v) {
         Intent tokenIntent = new Intent(this, MonetaryTokenizerActivity.class);
-        tokenIntent.putExtra("publicKey", "test_public0CC030338D154CFE95B0E9E4892F8E62");
+        tokenIntent.putExtra("publicKey", "[Public Key Goes Here]");
         startActivityForResult(tokenIntent, MonetaryTokenizerActivity.MONETARY_TOKENIZER_REQUEST);
     }
 
