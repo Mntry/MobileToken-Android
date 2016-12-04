@@ -12,7 +12,7 @@
     }
     ```
 
-3. Add MonetaryMobileToken.aar to your the `dependencies` in your app's build.gradle file.
+3. Add MonetaryMobileToken.aar to the `dependencies` in your app's build.gradle file.
 
     ```
     dependencies {
