@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
                 MonetaryToken token = (MonetaryToken)data.getSerializableExtra("token");
                 new AlertDialog.Builder(this)
                         .setTitle("Token Response")
-                        .setMessage("Token: " + token.token)
+                        .setMessage("Token: " + token.token + "\nLast 4: " + token.last4 + "\nExp Month: " + token.expirationMonth + "\nExp Year: " + token.expirationYear + "\nBrand: " + token.brand)
                         .setNeutralButton("OK", null).show();
             }
             else if (resultCode == MonetaryTokenizerActivity.RESULT_ERROR)
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void getTokenPressed(View v) {
         Intent tokenIntent = new Intent(this, MonetaryTokenizerActivity.class);
-        tokenIntent.putExtra("publicKey", "[Public Key Goes Here]");
+        tokenIntent.putExtra("publicKey", "test_public0CC030338D154CFE95B0E9E4892F8E62");
         startActivityForResult(tokenIntent, MonetaryTokenizerActivity.MONETARY_TOKENIZER_REQUEST);
     }
 
