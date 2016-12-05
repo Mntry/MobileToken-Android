@@ -1,4 +1,4 @@
-# Getting started with MobileToken for Android [![Build Status](https://travis-ci.org/Mntry/MobileToken-Android.svg?branch=master)](https://travis-ci.org/Mntry/MobileToken-Android)
+# Getting started with MobileToken for Android
 
 ###Add MonetaryMobileToken.aar to your Android (Gradle) project
 1. Place MonetaryMobileToken.aar in the `libs` folder of your app.
@@ -12,7 +12,7 @@
     }
     ```
 
-3. Add MonetaryMobileToken.aar to your the `dependencies` in your app's build.gradle file.
+3. Add MonetaryMobileToken.aar to the `dependencies` in your app's build.gradle file.
 
     ```
     dependencies {
