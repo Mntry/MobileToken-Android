@@ -16,10 +16,6 @@
 bin/
 gen/
 
-# Gradle files
-.gradle/
-build/
-
 # Local configuration file (sdk path, etc)
 local.properties
 
@@ -119,7 +115,7 @@ fabric.properties
 
 
 ### Gradle ###
-.gradle
+.gradle/
 build/
 
 # Ignore Gradle GUI config
