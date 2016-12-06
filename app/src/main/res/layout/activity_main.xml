@@ -3,20 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/tlMainLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="co.monetary.mobiletokendemo.MainActivity"
-    android:layout_gravity="center"
-    android:gravity="center">
+    android:gravity="center_horizontal">
 
-    <Button
-        android:text="Get a Token!"
+    <ImageView
+        android:id="@+id/imgLogo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/btnGetToken"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:onClick="getTokenPressed"
-        android:background="@android:color/holo_blue_dark" />
+        android:src="@drawable/logo"
+        android:layout_gravity="top"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_below="@+id/imgLogo"
+            android:text="Get a Token!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnGetToken"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:onClick="getTokenPressed"
+            android:background="@android:color/holo_blue_dark"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"/>
+    </FrameLayout>
 
 </LinearLayout>
