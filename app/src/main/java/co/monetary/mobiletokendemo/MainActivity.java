@@ -19,8 +19,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == MonetaryTokenizerActivity.MONETARY_TOKENIZER_REQUEST)
         {
             if (resultCode == MonetaryTokenizerActivity.RESULT_SUCCESS)
@@ -38,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
                         .setTitle("Tokenization Error")
                         .setMessage("Error Code: " + error.errorCode.toString() + "\nError Message: " + error.errorMessage)
                         .setNeutralButton("OK", null).show();
-
             }
             else if (resultCode == MonetaryTokenizerActivity.RESULT_CANCELED)
             {
@@ -46,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                         .setTitle("Tokenization Cancelled")
                         .setMessage("Tokenization Cancelled")
                         .setNeutralButton("OK", null).show();
-
             }
         }
     }
