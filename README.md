@@ -75,3 +75,6 @@ Intent tokenIntent = new Intent(this, MonetaryTokenizerActivity.class);
 tokenIntent.putExtra("publicKey", "[Public Key Goes Here]");
 startActivityForResult(tokenIntent, MonetaryTokenizerActivity.MONETARY_TOKENIZER_REQUEST);
 ```
+
+###Report bugs
+If you encounter any bugs or issues with the latest version of MobileToken for Android, please report them to us by opening a [GitHub Issue](https://github.com/Mntry/MobileToken-Android/issues)!
