@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Monetary MobileToken Android Library by Mntry</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Monetary MobileToken Android Library</h1>
+        <p></p>
+
+        <p class="view"><a href="https://github.com/Mntry/MobileToken-Android">View the Project on GitHub <small>Mntry/MobileToken-Android</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/Mntry/MobileToken-Android/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/Mntry/MobileToken-Android/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/Mntry/MobileToken-Android">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="getting-started-with-mobiletoken-for-android" class="anchor" href="#getting-started-with-mobiletoken-for-android" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting started with MobileToken for Android</h1>
+
+<h3>
+<a id="add-monetarymobiletokenaar-to-your-android-gradle-project" class="anchor" href="#add-monetarymobiletokenaar-to-your-android-gradle-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Add MonetaryMobileToken.aar to your Android (Gradle) project</h3>
+
+<ol>
+<li>Place MonetaryMobileToken.aar in the <code>libs</code> folder of your app.</li>
+<li>
+<p>Ensure <code>libs</code> folder is included in <code>flatDir</code> repositories in your app's build.gradle file.</p>
+
+<pre><code>repositories {
+  flatDir {
+    dirs 'libs'
+  }
+}
+</code></pre>
+</li>
+<li>
+<p>Add MonetaryMobileToken.aar to the <code>dependencies</code> in your app's build.gradle file.</p>
+
+<pre><code>dependencies {
+  compile (name: 'MonetaryMobileToken', ext: 'aar')
+}
+</code></pre>
+</li>
+</ol>
+
+<h3>
+<a id="include-the-library-in-your-code" class="anchor" href="#include-the-library-in-your-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Include the library in your code</h3>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">import</span> <span class="pl-smi">co.monetary.mobiletoken.*</span>;</pre></div>
+
+<h3>
+<a id="implement-tokenization-result-handler" class="anchor" href="#implement-tokenization-result-handler" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implement tokenization result handler</h3>
+
+<h5>
+<a id="implement-onactivityresult-for-monetarytokenizeractivitymonetary_tokenizer_request-requestcode" class="anchor" href="#implement-onactivityresult-for-monetarytokenizeractivitymonetary_tokenizer_request-requestcode" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implement <code>onActivityResult</code> for <code>MonetaryTokenizerActivity.MONETARY_TOKENIZER_REQUEST</code> requestCode</h5>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-k">@Override</span>
+<span class="pl-k">protected</span> <span class="pl-k">void</span> onActivityResult(<span class="pl-k">int</span> requestCode, <span class="pl-k">int</span> resultCode, <span class="pl-smi">Intent</span> data)
+{
+    <span class="pl-k">if</span> (requestCode <span class="pl-k">==</span> <span class="pl-smi">MonetaryTokenizerActivity</span><span class="pl-c1"><span class="pl-k">.</span>MONETARY_TOKENIZER_REQUEST</span>)
+    {
+        <span class="pl-k">if</span> (resultCode <span class="pl-k">==</span> <span class="pl-smi">MonetaryTokenizerActivity</span><span class="pl-c1"><span class="pl-k">.</span>RESULT_SUCCESS</span>)
+        {
+            <span class="pl-c">// A token has been received!</span>
+            <span class="pl-smi">MonetaryToken</span> token <span class="pl-k">=</span> (<span class="pl-smi">MonetaryToken</span>)data<span class="pl-k">.</span>getSerializableExtra(<span class="pl-s"><span class="pl-pds">"</span>token<span class="pl-pds">"</span></span>);
+        }
+        <span class="pl-k">else</span> <span class="pl-k">if</span> (resultCode <span class="pl-k">==</span> <span class="pl-smi">MonetaryTokenizerActivity</span><span class="pl-c1"><span class="pl-k">.</span>RESULT_ERROR</span>)
+        {
+            <span class="pl-c">// A tokenization error has occurred!</span>
+            <span class="pl-smi">MonetaryTokenizationError</span> error <span class="pl-k">=</span> (<span class="pl-smi">MonetaryTokenizationError</span>)data<span class="pl-k">.</span>getSerializableExtra(<span class="pl-s"><span class="pl-pds">"</span>error<span class="pl-pds">"</span></span>);
+        }
+        <span class="pl-k">else</span> <span class="pl-k">if</span> (resultCode <span class="pl-k">==</span> <span class="pl-smi">MonetaryTokenizerActivity</span><span class="pl-c1"><span class="pl-k">.</span>RESULT_CANCELED</span>)
+        {
+            <span class="pl-c">// The user has cancelled tokenization!</span>
+        }
+    }
+}</pre></div>
+
+<p>For the <code>MonetaryTokenizerActivity.RESULT_SUCCESS</code> resultCode, the received Intent contains a <code>MonetaryToken</code> object named <code>"token"</code> that contains 5 String members:  </p>
+
+<ul>
+<li>
+<code>token</code>: The one-time-use token for the user-entered account data.</li>
+<li>
+<code>brand</code>: The card brand of account represented by the token.</li>
+<li>
+<code>expirationMonth</code>: The 2-digit expiration month of the account.</li>
+<li>
+<code>expirationYear</code>: The 4-digit expiration year of the account.</li>
+<li>
+<code>last4</code>: The last 4 digits of the account number.</li>
+</ul>
+
+<p>For the <code>MonetaryTokenizerActivity.RESULT_ERROR</code> resultCode, the received Intent contains a <code>MonetaryTokenizationError</code> object named <code>"error"</code> that contains 2 members:  </p>
+
+<ul>
+<li>
+<code>errorCode</code>: The MonetaryMobileToken error code.</li>
+<li>
+<code>errorMessage</code>: The error description.</li>
+</ul>
+
+<p>The <code>MonetaryTokenizationError</code> object's member <code>errorCode</code> is an enum of 4 possible values:</p>
+
+<ul>
+<li>
+<code>ErrorCodes.CONNECTION_ERROR</code>: Failed to communicate with Monetary Token API.</li>
+<li>
+<code>ErrorCodes.AUTHENTICATION_ERROR</code>: Public key authentication failed.</li>
+<li>
+<code>ErrorCodes.VALIDATION_ERROR</code>: Failed to tokenize due to invalid account information.</li>
+<li>
+<code>ErrorCodes.UNKNOWN_ERROR</code>: An error has occurred tokenizing the account data at the Monetary Token API.</li>
+</ul>
+
+<h3>
+<a id="request-a-token-for-keyed-account" class="anchor" href="#request-a-token-for-keyed-account" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Request a token for keyed account</h3>
+
+<h5>
+<a id="create-an-intent-for-monetarytokenizeractivity-and-provide-a-monetary-public-key-as-an-extra-named-publickey-then-start-activity-for-result-with-the-intent" class="anchor" href="#create-an-intent-for-monetarytokenizeractivity-and-provide-a-monetary-public-key-as-an-extra-named-publickey-then-start-activity-for-result-with-the-intent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create an Intent for <code>MonetaryTokenizerActivity</code> and provide a Monetary public key as an extra named <code>"publicKey"</code> then start activity for result with the Intent</h5>
+
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">Intent</span> tokenIntent <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Intent</span>(<span class="pl-v">this</span>, <span class="pl-smi">MonetaryTokenizerActivity</span><span class="pl-k">.</span>class);
+tokenIntent<span class="pl-k">.</span>putExtra(<span class="pl-s"><span class="pl-pds">"</span>publicKey<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>[Public Key Goes Here]<span class="pl-pds">"</span></span>);
+startActivityForResult(tokenIntent, <span class="pl-smi">MonetaryTokenizerActivity</span><span class="pl-c1"><span class="pl-k">.</span>MONETARY_TOKENIZER_REQUEST</span>);</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/Mntry">Mntry</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
