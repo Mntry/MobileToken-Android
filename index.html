@@ -129,6 +129,13 @@
 <h5>
 <a id="create-an-intent-for-monetarytokenizeractivity-and-provide-a-monetary-public-key-as-an-extra-named-publickey-then-start-activity-for-result-with-the-intent" class="anchor" href="#create-an-intent-for-monetarytokenizeractivity-and-provide-a-monetary-public-key-as-an-extra-named-publickey-then-start-activity-for-result-with-the-intent" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create an Intent for <code>MonetaryTokenizerActivity</code> and provide a Monetary public key as an extra named <code>"publicKey"</code> then start activity for result with the Intent</h5>
 
+<h3>
+<a id="report-bugs" class="anchor" href="#report-bugs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Report bugs</h3>
+
+<p>
+If you encounter any bugs or issues with the latest version of MobileToken for Android, please report them to us by opening a <a href="https://github.com/Mntry/MobileToken-Android/issues">GitHub Issue</a>!
+</p>
+
 <div class="highlight highlight-source-java"><pre><span class="pl-smi">Intent</span> tokenIntent <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Intent</span>(<span class="pl-v">this</span>, <span class="pl-smi">MonetaryTokenizerActivity</span><span class="pl-k">.</span>class);
 tokenIntent<span class="pl-k">.</span>putExtra(<span class="pl-s"><span class="pl-pds">"</span>publicKey<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>[Public Key Goes Here]<span class="pl-pds">"</span></span>);
 startActivityForResult(tokenIntent, <span class="pl-smi">MonetaryTokenizerActivity</span><span class="pl-c1"><span class="pl-k">.</span>MONETARY_TOKENIZER_REQUEST</span>);</pre></div>
