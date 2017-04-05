@@ -1,6 +1,6 @@
 # Getting started with MobileToken for Android
 
-###Add MonetaryMobileToken.aar to your Android (Gradle) project
+### Add MonetaryMobileToken.aar to your Android (Gradle) project
 1. Place MonetaryMobileToken.aar in the `libs` folder of your app.
 2. Ensure `libs` folder is included in `flatDir` repositories in your app's build.gradle file.
 
@@ -20,13 +20,13 @@
     }
     ```
 
-###Include the library in your code
+### Include the library in your code
 ```java
 import co.monetary.mobiletoken.*;
 ```
 
-###Implement tokenization result handler
-#####Implement `onActivityResult` for `MonetaryTokenizerActivity.MONETARY_TOKENIZER_REQUEST` requestCode
+### Implement tokenization result handler
+##### Implement `onActivityResult` for `MonetaryTokenizerActivity.MONETARY_TOKENIZER_REQUEST` requestCode
 ```java
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data)
@@ -68,13 +68,13 @@ The `MonetaryTokenizationError` object's member `errorCode` is an enum of 4 poss
 * `ErrorCodes.VALIDATION_ERROR`: Failed to tokenize due to invalid account information.
 * `ErrorCodes.UNKNOWN_ERROR`: An error has occurred tokenizing the account data at the Monetary Token API.
 
-###Request a token for keyed account
-#####Create an Intent for `MonetaryTokenizerActivity` and provide a Monetary public key as an extra named `"publicKey"` then start activity for result with the Intent
+### Request a token for keyed account
+##### Create an Intent for `MonetaryTokenizerActivity` and provide a Monetary public key as an extra named `"publicKey"` then start activity for result with the Intent
 ```java
 Intent tokenIntent = new Intent(this, MonetaryTokenizerActivity.class);
 tokenIntent.putExtra("publicKey", "[Public Key Goes Here]");
 startActivityForResult(tokenIntent, MonetaryTokenizerActivity.MONETARY_TOKENIZER_REQUEST);
 ```
 
-###Report bugs
+### Report bugs
 If you encounter any bugs or issues with the latest version of MobileToken for Android, please report them to us by opening a [GitHub Issue](https://github.com/Mntry/MobileToken-Android/issues)!
